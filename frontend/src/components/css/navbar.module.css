@@ -1,0 +1,45 @@
+.Navbar{
+    width: 100%;
+    height: 27px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+ul{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.frame{
+width: 24px;
+height: 24px;
+}
+
+.logofont{
+font-family: Poppins;
+font-style: normal;
+font-weight: bold;
+font-size: 18px;
+line-height: 27px;
+margin-left: 5px;
+
+color: #FFFFFF;
+}
+.flex{
+    display: flex;
+
+}
+li{
+    color: #FFFFFF;
+    margin-left: 50px;
+    font-family: Poppins;
+font-style: normal;
+font-weight: 600;
+font-size: 14px;
+line-height: 21px;
+}
