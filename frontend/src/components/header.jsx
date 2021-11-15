@@ -31,7 +31,6 @@ font-size: 20px;
 line-height: 30px;
 color: #FFFFFF;
 
-
 `
 const Header = () => {
     return (

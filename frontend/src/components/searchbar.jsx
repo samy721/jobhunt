@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
+import style from './css/searchbar.module.css'
 
 const Searchbox = styled.div`
 position: absolute;
@@ -66,22 +68,13 @@ line-height: 24px;
 color: #7B7B7B;
 outline: none;
 `
-const Button = styled.button`
-width: 280px;
-height: 60px;
-background-color: #F07987;
-font-family: Poppins;
-font-style: normal;
-font-weight: 600;
-font-size: 24px;
-line-height: 36px;
-color: #FFFFFF;
-border: none;
-border-radius: 8px;
-cursor: pointer;
-`
 
 function SearchBar() {
+
+    const [title,setTitle] = useState("")
+    const [location,setLocation] = useState("")
+    
+
     return (
         <Searchbox>
             <Inner>
@@ -91,7 +84,8 @@ function SearchBar() {
                             <path d="M28.5 28.5L19.5 19.5L28.5 28.5ZM22.5 12C22.5 13.3789 22.2284 14.7443 21.7007 16.0182C21.1731 17.2921 20.3996 18.4496 19.4246 19.4246C18.4496 20.3996 17.2921 21.1731 16.0182 21.7007C14.7443 22.2284 13.3789 22.5 12 22.5C10.6211 22.5 9.25574 22.2284 7.98182 21.7007C6.70791 21.1731 5.55039 20.3996 4.57538 19.4246C3.60036 18.4496 2.82694 17.2921 2.29927 16.0182C1.77159 14.7443 1.5 13.3789 1.5 12C1.5 9.21523 2.60625 6.54451 4.57538 4.57538C6.54451 2.60625 9.21523 1.5 12 1.5C14.7848 1.5 17.4555 2.60625 19.4246 4.57538C21.3938 6.54451 22.5 9.21523 22.5 12Z" stroke="#7B7B7B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                     </Frame>
-                    <Input type="text" placeholder="Job title or keyword" />
+                    <Input type="text" placeholder="Job title or keyword" 
+                     value={title} onChange={e=>setTitle(e.target.value)} />
                 </InputBox>
                 <InputBox1>
                     <Frame>
@@ -100,11 +94,13 @@ function SearchBar() {
                         </svg>
 
                     </Frame>
-                    <Select >
-                        <option value="">Select Location</option>
+                    <Select value={location} onChange={e=>setLocation(e.target.value)} >
+                            <option style={{display:"none"}}value="">Select Location</option>
+                            <option value="berlin, germany">berlin, germany</option>
+                            <option value="Delhi, India">Delhi, India</option>
                     </Select>
                 </InputBox1>
-                <Button>Search</Button>
+                <NavLink className={style.navlink} to={`/Jobs?title=${title}&location=${location}`} >Search</NavLink>
             </Inner>
         </Searchbox>
     )

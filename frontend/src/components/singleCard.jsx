@@ -67,19 +67,27 @@ color: #F07987;
 background: white;
 margin-right: 23px;
 `
+
 const SingleCard = () => {
+
+    const obj = {
+        img:"https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2940&q=80",
+        designation:"Executive Producer",
+        description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."  
+    }
+
     return (
         <Card>
             <InnerCard>
                 <CardImg>
-                    <img style={{ width: "100%", height: "100%" }} src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2940&q=80" alt="Not available" />
+                    <img style={{ width: "100%", height: "100%" }} src={obj.img} alt="Not available" />
                 </CardImg>
                 <InfoCard>
                     <Designation>
-                        Executive Producer
+                         {obj.designation}
                     </Designation>
                     <Description>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                         {obj.description}
                     </Description>
                     <div style={{display:"flex", justifyContent:"flex-end"}}>
                     <Button>

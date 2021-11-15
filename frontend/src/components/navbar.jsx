@@ -1,7 +1,20 @@
-import React from 'react'
+import { useState } from 'react'
+import { NavLink } from 'react-router-dom'
+import styled from 'styled-components'
 import style from './css/navbar.module.css'
+import { useLocation } from 'react-router'
+
+const UnderLine = styled.div`
+position: absolute;
+left: 20%;
+width: 34px;
+height: 0px;
+border: 3px solid #FFFFFF;
+`
 
 function Navbar() {
+    const curr = useLocation().pathname
+    
     return (
         <div className={style.Navbar}>
             <ul>
@@ -14,13 +27,19 @@ function Navbar() {
 
                         </div>
                     </div>
-                    <div className={style.logofont}>
-                        JobHunt
-                    </div>
+                    <li className={style.logofont}>
+                    <NavLink style={{textDecoration:"none",color:"white"}} to="/">
+                     JobHunt
+                    </NavLink>
+                    </li>
+                    
                 </div>
                 <ul>
                     <li>
-                    Find Jobs
+                    <NavLink style={{textDecoration:"none",color:"white"}} to="/Jobs">
+                     Find Jobs
+                    </NavLink>
+                    {curr === "/Jobs" && <UnderLine/>}
                     </li>
                     <li>
                     Upskill Yourself
@@ -29,7 +48,10 @@ function Navbar() {
             </ul>
             <ul>
                 <li>
+               <NavLink style={{textDecoration:"none",color:"white"}} to="/postJob">
                 Post a Job
+                </NavLink>
+                {curr === "/postJob" && <UnderLine/>}
                 </li>
                 <li>
                 Sign in

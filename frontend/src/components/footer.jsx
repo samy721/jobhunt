@@ -1,4 +1,5 @@
 import React from 'react'
+import { useLocation, useParams } from 'react-router'
 import styled from 'styled-components'
 import SingleCard from './singleCard'
 
@@ -14,6 +15,8 @@ grid-column-gap: 34px;
 grid-row-gap: 31px;
 `
 const Footer = () => {
+    const query = useLocation()
+
     return (
         <Box>
             <SingleCard/>

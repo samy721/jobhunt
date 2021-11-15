@@ -35,6 +35,7 @@ color: #FFFFFF;
 
 }
 li{
+    position: relative;
     color: #FFFFFF;
     margin-left: 50px;
     font-family: Poppins;
